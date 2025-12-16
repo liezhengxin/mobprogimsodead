@@ -1,24 +1,38 @@
 package com.example.aolmobprog;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class AddTodoActivity extends AppCompatActivity {
+
+    EditText etTitle, etDesc;
+    Button btnSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_add_todo);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        etTitle = findViewById(R.id.etTitle);
+        etDesc = findViewById(R.id.etDesc);
+        btnSave = findViewById(R.id.btnSave);
+
+        btnSave.setOnClickListener(v -> {
+
+            String title = etTitle.getText().toString();
+            String desc = etDesc.getText().toString();
+
+            // ============================
+            // TODO (Again lengkapin ini aja):
+            // 1. Validate input
+            // 2. Save data to Firebase Firestore
+            // 3. Return to MainActivity
+            // ============================
+
+            finish(); // temporary
         });
     }
 }
