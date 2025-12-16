@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CheckIt!"
-        android:textSize="26sp"
+        android:textSize="54sp"
         android:textStyle="bold"
         android:textColor="@color/black" />
 
@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Take Control Of Your Life!"
-        android:textSize="14sp"
+        android:textSize="21sp"
         android:textColor="#2C2C2C"
         android:layout_marginBottom="32dp" />
 
