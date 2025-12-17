@@ -13,7 +13,7 @@
         android:textStyle="bold"
         android:layout_marginBottom="12dp" />
 
-    <!-- RecyclerView (Ntar firdan tinggal implemen disini yes?) -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTodo"
         android:layout_width="match_parent"
@@ -25,6 +25,15 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="end">
+
+        <Button
+            android:id="@+id/btnDeleteAll"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:layout_weight="1"
+            android:text="Delete All"
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btnMap"

@@ -1,12 +1,11 @@
 package com.example.aolmobprog;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -18,23 +17,15 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
 
+    private Button backBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
+        setContentView(R.layout.activity_map); // Pastikan nama layout ini benar
 
-        Button btnBack = findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-        SupportMapFragment mapFragment =
-                (SupportMapFragment) getSupportFragmentManager()
-                        .findFragmentById(R.id.map);
-
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map); // Pastikan ID ini ada di activity_map.xml
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
@@ -44,13 +35,24 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Example location (Jakarta)
-        LatLng jakarta = new LatLng(-6.200000, 106.816666);
+        // Atur posisi awal kamera (contoh: Jakarta)
+        LatLng jakarta = new LatLng(-6.2088, 106.8456);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(jakarta, 10));
 
-        mMap.addMarker(new MarkerOptions()
-                .position(jakarta)
-                .title("Task Location"));
+        // --- INI BAGIAN PENTINGNYA ---
+        // Atur listener untuk klik di peta
+        mMap.setOnMapClickListener(latLng -> {
+            // Buat Intent untuk mengembalikan data
+            Intent resultIntent = new Intent();
+            // Masukkan data latitude dan longitude ke dalam intent
+            resultIntent.putExtra("EXTRA_LATITUDE", latLng.latitude);
+            resultIntent.putExtra("EXTRA_LONGITUDE", latLng.longitude);
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(jakarta, 12f));
+            // Set hasilnya sebagai OK dan kirim intent kembali
+            setResult(RESULT_OK, resultIntent);
+
+            // Tutup MapActivity
+            finish();
+        });
     }
 }

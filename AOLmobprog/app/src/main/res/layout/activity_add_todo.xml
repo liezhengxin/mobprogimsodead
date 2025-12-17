@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:padding="24dp">
 
+    <!-- Bagian atas tidak berubah -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,12 +26,59 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Task Description"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="16dp" />
 
-    <Button
-        android:id="@+id/btnSave"
+    <TextView
+        android:id="@+id/tvSelectedLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save Task" />
+        android:text="No location selected"
+        android:padding="8dp"
+        android:background="#F0F0F0"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnSelectLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Location from Map"
+        style="?attr/materialButtonOutlinedStyle"/>
+
+    <!-- ================ PERBAIKAN DIMULAI DI SINI ================ -->
+
+    <!-- 1. TAMBAHKAN SPACE UNTUK MENGISI RUANG KOSONG -->
+    <!-- Komponen ini akan meregang, mendorong LinearLayout di bawahnya ke dasar. -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- 2. PINDAHKAN GRUP TOMBOL KE SINI (DI BAWAH SPACE) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Tombol Back -->
+        <Button
+            android:id="@+id/btnBack"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="Back" />
+
+        <!-- Tombol Save -->
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="Save Task"/>
+
+    </LinearLayout>
+    <!-- ================== AKHIR DARI PERBAIKAN ================== -->
 
 </LinearLayout>

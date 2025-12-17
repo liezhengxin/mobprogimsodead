@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".DetailActivity">
+
+    <!-- Konten Detail Tugas (Judul) -->
+    <TextView
+        android:id="@+id/detailTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Judul Tugas"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Konten Detail Tugas (Deskripsi) -->
+    <TextView
+        android:id="@+id/detailDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ini adalah tempat untuk deskripsi tugas."
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Label untuk Lokasi -->
+    <TextView
+        android:id="@+id/tvLocationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location:"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Tampilan Peta -->
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/detailMapView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- ================ PERBAIKAN DIMULAI DI SINI ================ -->
+
+    <!-- 1. HAPUS SEMUA ConstraintLayout yang tidak perlu -->
+
+    <!-- 2. TAMBAHKAN SPACE untuk mengisi sisa ruang vertikal -->
+    <!-- Ini akan "mendorong" tombol di bawahnya agar menempel ke dasar layar -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- 3. LETAKKAN TOMBOL "Back" di sini -->
+    <!-- Tombol ini sekarang akan selalu berada di paling bawah -->
+    <Button
+        android:id="@+id/btnBack"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Back" />
+
+    <!-- ================ AKHIR DARI PERBAIKAN ================ -->
+
+</LinearLayout>
