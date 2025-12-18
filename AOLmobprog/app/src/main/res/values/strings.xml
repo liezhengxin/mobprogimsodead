@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">AOLmobprog</string>
+
+    <!-- TAMBAHKAN KODE DI BAWAH INI -->
+    <string-array name="titles">
+        <item>Belajar RecyclerView</item>
+        <item>Mengerjakan Tugas MobProg</item>
+        <item>Push ke GitHub</item>
+        <item>Tidur Nyenyak</item>
+    </string-array>
+
+    <string-array name="description">
+        <item>Memahami cara kerja Adapter, ViewHolder, dan LayoutManager.</item>
+        <item>Menyelesaikan fitur klik pada item RecyclerView dan membuat halaman detail.</item>
+        <item>Simpan semua progres codingan ke repository online agar tidak hilang.</item>
+        <item>Istirahat yang cukup agar besok bisa coding lagi dengan semangat.</item>
+    </string-array>
+
 </resources>

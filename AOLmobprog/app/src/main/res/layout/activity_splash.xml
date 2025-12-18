@@ -11,7 +11,8 @@
         android:layout_width="250dp"
         android:layout_height="90dp"
         android:src="@drawable/checkitlogo"
-        android:contentDescription="App Logo" />
+        android:contentDescription="App Logo"
+        android:layout_marginBottom="24dp" />
 
     <TextView
         android:id="@+id/txtAppName"
@@ -20,7 +21,8 @@
         android:text="Take Control Of Your Life!"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginTop="16dp" />
+        android:textColor="@color/brand_primary"
+        android:fontFamily="sans-serif-medium"
+        android:textAlignment="center" />
 
 </LinearLayout>

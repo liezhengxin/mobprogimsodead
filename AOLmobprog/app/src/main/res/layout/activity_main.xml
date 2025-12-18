@@ -1,44 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:background="#F2F5F8"> <View
+    android:id="@+id/headerBg"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:background="@drawable/bg_header_rounded" />
 
     <TextView
+        android:id="@+id/tvHeaderTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="My Tasks"
-        android:textSize="22sp"
+        android:textSize="32sp"
         android:textStyle="bold"
-        android:layout_marginBottom="12dp" />
+        android:textColor="@color/white"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="24dp" />
 
-    <!-- RecyclerView (Ntar firdan tinggal implemen disini yes?) -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTodo"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+    <TextView
+        android:id="@+id/tvHeaderSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let's get things done today."
+        android:textSize="16sp"
+        android:textColor="#E0E0E0"
+        android:layout_below="@id/tvHeaderTitle"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp" />
 
-    <LinearLayout
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottomDock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="end">
+        android:layout_alignParentBottom="true"
+        app:cardElevation="16dp"
+        app:cardBackgroundColor="@color/white">
 
-        <Button
-            android:id="@+id/btnMap"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Map" />
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
 
-        <Button
-            android:id="@+id/btnAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Task"
-            android:layout_marginStart="8dp" />
+            <Button
+                android:id="@+id/btnDeleteAll"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="0.8"
+                android:layout_marginEnd="8dp"
+                android:text="Clear"
+                style="?attr/materialButtonOutlinedStyle"
+                android:textColor="#EF5350"
+                app:strokeColor="#EF5350" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/btnMap"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:text="Map"
+                android:layout_marginEnd="8dp"
+                style="?attr/materialButtonOutlinedStyle" />
 
-</LinearLayout>
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:text="+ New Task"
+                android:background="@drawable/bg_button_primary"
+                app:backgroundTint="@null"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/taskContainerBox"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/headerBg"
+        android:layout_above="@id/bottomDock"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="4dp"> <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTodo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
